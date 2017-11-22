@@ -1,0 +1,22 @@
+{
+  "name": "verkefni9",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint *.js",
+    "dev": "browser-sync start --server --files index.html styles.css scripts.js",
+    "sass": "node-sass styles.scss styles.css -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "eslint": "^4.9.0",
+    "npm-run-all": "^4.1.2"
+  },
+  "dependencies": {
+    "node-sass": "^4.7.2"
+  }
+}
