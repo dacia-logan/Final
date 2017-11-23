@@ -48,37 +48,37 @@ var json = {
     }
   ]
 }
-var div, div1, div2, div3, div4, div5, div6;
+var container, flokkur, vidbox, div1, div2, vid;
 var h1;
 
 function titlar(obj) {
-  div = document.querySelector('.container')
-  div1 = document.querySelector('.nyleg')
-  div4 = document.createElement('kennslu');
-  div3 = document.querySelector('.skemmti')
-  for(i=0; i<json.categories.length; i++) {
-    div2 = document.createElement('div')                                                                    
-                                          h1 = document.createElement('h1');
-    div2.appendChild(h1);
-    div4.appendChild(div2);
-    div
-    h1.appendChild(document.createTextNode(json.categories[i].title));
 
-}}
-  /*  div0.appendChild(div1);
-    div1.setAttribute('class', 'row kafli');
-    div2.setAttribute('class', 'col');
-    div5.setAttribute('class', 'row');
+  container = document.querySelector('.container');
+
+
+  for(i=0; i<json.categories.length; i+=1) {
+
+    div1 = document.createElement('div');
+    div2 = document.createElement('div');
+    h1 = document.createElement('h1');
+    div1.appendChild(h1);
+    div1.appendChild(div2);
+    container.appendChild(div1);
+    h1.appendChild(document.createTextNode(json.categories[i].title));
+    div1.setAttribute('class', 'flokkur');
+    div2.setAttribute('class','vidbox');
+
+    for(j=0; j<json.categories[i].videos.length; j+=1){
+
+    }
+
+ }
+}
+  /*
 
     for(i=0; i<obj.categories[j].videos.length; i++) {
 
-      div3 = document.createElement('div');
-      div4 = document.createElement('div');
-      link = document.createElement('a');
-      mynd = document.createElement('img');
-      h2 = document.createElement('h2');
-      p1 = document.createElement('p');
-      timinn = document.createElement('div');
+
       div3.appendChild(div4);
       div4.appendChild(link);
       link.appendChild(mynd);
