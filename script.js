@@ -48,8 +48,9 @@ var json = {
     }
   ]
 }
-var container, flokkur, vidbox, div1, div2, vid;
-var h1;
+var container, flokkur, vidbox, div1, div2, vid, video, a, img;
+var h1, h2;
+var sida2 = 'video.html?id='
 
 function titlar(obj) {
 
@@ -69,7 +70,16 @@ function titlar(obj) {
     div2.setAttribute('class','vidbox');
 
     for(j=0; j<json.categories[i].videos.length; j+=1){
-
+      vidiv = document.createElement('div');
+      a = document.createElement('a');
+      img = document.createElement('img');
+      h2 = document.createElement('p');
+      div2.appendChild(vidiv);
+      vidiv.appendChild(a);
+      a.appendChild(img);
+      a.appendChild(h2.appendChild(document.createTextNode(json.videos[i].title)));
+      img.setAttribute('src', json.videos[j].poster);
+      a.setAttribute('href', 'videos.html?id='+json.categories[j].videos[j].id);
     }
 
  }
