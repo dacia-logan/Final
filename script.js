@@ -1,53 +1,8 @@
-var json = {
-  "videos": [
-    {
-      "id": 1,
-      "title": "Lego!",
-      "created": 1509804047011,
-      "duration": 5,
-      "poster": "./videos/small.png",
-      "video": "./videos/small.mp4"
-    },
-    {
-      "id": 2,
-      "title": "Big Bunny",
-      "created": 1507804047011,
-      "duration": 62,
-      "poster": "./videos/bunny.png",
-      "video": "./videos/bunny.mp4"
-    },
-    {
-      "id": 3,
-      "title": "Prufu myndband",
-      "created": 1505904047011,
-      "duration": 3600,
-      "poster": "./videos/16-9.png",
-      "video": "./videos/bunny.mp4"
-    },
-    {
-      "id": 4,
-      "title": "Prufu myndband með löngum texta sem fer í tvær línur",
-      "created": 1504904047011,
-      "duration": 220,
-      "poster": "./videos/16-9.png",
-      "video": "./videos/bunny.mp4"
-    }
-  ],
-  "categories": [
-    {
-      "title": "Nýleg myndbönd",
-      "videos": [1, 2]
-    },
-    {
-      "title": "Kennslumyndbönd",
-      "videos": [1, 3, 4]
-    },
-    {
-      "title": "Skemmtimyndbönd",
-      "videos": [2, 3, 4]
-    }
-  ]
-}
+var request = new XMLHttpRequest();
+request.open("GET", "./videos.json", false);
+request.send(null)
+var json= JSON.parse(request.responseText);
+
 var container, flokkur, vidbox, div1, div2, div3, vid, video, a, img;
 var h1, h2;
 var sida2 = 'video.html?id='
@@ -89,6 +44,16 @@ function titlar(obj) {
 
  }
 }
+
+function created(millisekundur){
+
+  var dags= new Date();
+  var created= dags-millisekundur;
+
+}
+
+
+
   /*
 
     for(i=0; i<obj.categories[j].videos.length; i++) {
