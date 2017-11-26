@@ -48,14 +48,13 @@ var json = {
     }
   ]
 }
-var container, flokkur, vidbox, div1, div2, vid, video, a, img;
+var container, flokkur, vidbox, div1, div2, div3, vid, video, a, img;
 var h1, h2;
 var sida2 = 'video.html?id='
 
 function titlar(obj) {
 
   container = document.querySelector('.container');
-
 
   for(i=0; i<json.categories.length; i+=1) {
 
@@ -70,16 +69,22 @@ function titlar(obj) {
     div2.setAttribute('class','vidbox');
 
     for(j=0; j<json.categories[i].videos.length; j+=1){
+
       vidiv = document.createElement('div');
+      div3 = document.createElement('div');
       a = document.createElement('a');
       img = document.createElement('img');
-      h2 = document.createElement('p');
+      h2 = document.createElement('h2');
       div2.appendChild(vidiv);
-      vidiv.appendChild(a);
+      vidiv.appendChild(div3);
+      div3.appendChild(a);
       a.appendChild(img);
-      a.appendChild(h2.appendChild(document.createTextNode(json.videos[i].title)));
-      img.setAttribute('src', json.videos[j].poster);
-      a.setAttribute('href', 'videos.html?id='+json.categories[j].videos[j].id);
+      h2.appendChild(document.createTextNode(json.videos[json.categories[i].videos[j] - 1].title));
+      a.appendChild(h2);
+
+      vidiv.setAttribute('class', 'myndband')
+      img.src = json.videos[json.categories[i].videos[j] -1].poster;
+      a.setAttribute('href', 'videos.html'+'?id='+json.videos[json.categories[i].videos[j] - 1].id);
     }
 
  }
@@ -113,6 +118,23 @@ function titlar(obj) {
   }
   results.appendChild(div0);
 }
+möguleg lausn playpause
+
+var myAudio = document.getElementById("myAudio");
+var isPlaying = false;
+
+function togglePlay() {
+  if (isPlaying) {
+    myAudio.pause()
+  } else {
+    myAudio.play();
+  }
+};
+myAudio.onplaying = function() {
+  isPlaying = true;
+};
+myAudio.onpause = function() {
+  isPlaying = false;
 
 */
 window.addEventListener('load', titlar);
