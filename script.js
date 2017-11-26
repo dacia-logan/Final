@@ -1,13 +1,13 @@
 var request = new XMLHttpRequest();
 request.open("GET", "./videos.json", false);
 request.send(null)
-var json= JSON.parse(request.responseText);
+var json= JSON.parse(request.response);
 
 var container, flokkur, vidbox, div1, div2, div3, vid, video, a, p, img;
 var h1, h2;
 var sida2 = 'video.html?id='
 
-function titlar(obj) {
+function likami() {
 
   container = document.querySelector('.container');
 
@@ -93,33 +93,7 @@ function lengdMyndb(sekundur) {
 
   /*
 
-    for(i=0; i<obj.categories[j].videos.length; i++) {
 
-
-      div3.appendChild(div4);
-      div4.appendChild(link);
-      link.appendChild(mynd);
-      div4.appendChild(timinn);
-      div4.appendChild(h2);
-      div4.appendChild(p1);
-
-      div3.setAttribute('class', 'col col-12 col-m-6 col-l-4');
-      link.setAttribute('href', videoSida + obj.videos[obj.categories[j].videos[i]-1].id)
-      div4.setAttribute('class', 'container');
-      mynd.src = obj.videos[obj.categories[j].videos[i]-1].poster;
-      mynd.setAttribute('class', 'mynd');
-      timinn.setAttribute('class', 'timinn');
-      mynd.setAttribute('id', obj.videos[obj.categories[j].videos[i]-1].id);
-      p1.appendChild(document.createTextNode(timiSidan(obj.videos[obj.categories[j].videos[i]-1].created)));
-      h2.appendChild(document.createTextNode(obj.videos[obj.categories[j].videos[i]-1].title));
-      timinn.appendChild(document.createTextNode(lengdMyndbands(obj.videos[obj.categories[j].videos[i]-1].duration)));
-      div5.appendChild(div3);
-    }
-    div0.appendChild(div5);
-
-  }
-  results.appendChild(div0);
-}
 möguleg lausn playpause
 
 var myAudio = document.getElementById("myAudio");
@@ -139,4 +113,4 @@ myAudio.onpause = function() {
   isPlaying = false;
 
 */
-window.addEventListener('load', titlar);
+document.addEventListener('DOMContentLoaded', likami);
