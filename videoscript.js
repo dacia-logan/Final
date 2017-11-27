@@ -100,26 +100,21 @@ function likami(){
             });
           }
 
-          /*  FInna út úr
-                function forwardRewind(millisek){
+          function forwardRewind(millisek){
 
-                  document.addEventListener('click', function(){
-                    document.querySelector('.forw');
-                    if(document.querySelector('.forw').onclick==true){
-
-                        myndband.currentTime += millisek;
+             document.addEventListener('click', function(){
+                forw.onclick = function(){
+                    myndband.currentTime +=millisek;
                     }
-                    document.querySelector('.back');
-                     if(document.querySelector('.back').onclick==true) {
-
-                      myndband.currentTime -= millisek;
-                   }
+                back.onclick = function() {
+                    myndband.currentTime -= millisek;
+                    }
                 });
-              }*/
-
+              }
 
       }
       playpause();
-      muteUnmute()
+      muteUnmute();
+      forwardRewind(3);
       //forwardRewind(3000);
       }
