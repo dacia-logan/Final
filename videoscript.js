@@ -1,16 +1,29 @@
 
-
-var container, myndband, h1, a, header, audkenni, div, play, pause, forw, back, mute, unmute, fullscr, footer;
-var url = window.location;
-var lastChar;
+let container;
+let myndband;
+let h1;
+let a;
+let header;
+let audkenni;
+let div;
+let play;
+let pause;
+let forw;
+let back;
+let mute;
+let unmute
+let fullscr;
+let footer;
+let url = window.location;
+let lastChar;
 
 document.addEventListener('DOMContentLoaded', likami);
 
 function likami(){
-  var request = new XMLHttpRequest();
-  request.open("GET", "./videos.json", false);
+  const request = new XMLHttpRequest();
+  request.open('GET', './videos.json', false);
   request.send(null)
-  var json= JSON.parse(request.response);
+  let json= JSON.parse(request.response);
 
   container = document.querySelector('.container');
   header = document.querySelector('header');
@@ -19,12 +32,13 @@ function likami(){
   footer = document.querySelector('footer');
   myndband = document.createElement('video');
 
-  for(var i = 0; i<json.videos.length; i+=1){
+  for(i = 0; i<json.videos.length; i+=1){
     if(audkenni==json.videos[i].id){
       div = document.createElement('div');
       h1 = document.createElement('h1');
       a = document.createElement('a');
       takkadiv = document.createElement('div');
+
       play = document.createElement('img');
       play.setAttribute('class', 'play');
       pause = document.createElement('img');
@@ -101,11 +115,11 @@ function likami(){
             });
            }
 
-        function forwardRewind(millisek){
+         function forwardRewind(millisek){
 
            document.addEventListener('click', function(){
-             forw.onclick = function(){
-               myndband.currentTime +=millisek;
+             forw.onclick = function() {
+             myndband.currentTime += millisek;
                 }
              back.onclick = function() {
                 myndband.currentTime -= millisek;
