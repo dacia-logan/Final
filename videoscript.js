@@ -2,6 +2,7 @@
 
 var container, myndband, h1, a, header, audkenni, div, play, pause, forw, back, mute, unmute, fullscr, footer;
 var url = window.location;
+var lastChar;
 
 document.addEventListener('DOMContentLoaded', likami);
 
@@ -14,6 +15,7 @@ function likami(){
   container = document.querySelector('.container');
   header = document.querySelector('header');
   audkenni =url.search.substring(4, 5);
+  lastChar = url[url.length-1];
   footer = document.querySelector('footer');
   myndband = document.createElement('video');
 
@@ -31,7 +33,6 @@ function likami(){
       forw.setAttribute('class', 'forw');
       back = document.createElement('img');
       mute = document.createElement('img');
-      unmute = document.createElement('img');
       fullscr = document.createElement('img');
 
       container.appendChild(div);
@@ -44,14 +45,12 @@ function likami(){
       takkadiv.appendChild(forw);
       takkadiv.appendChild(back);
       takkadiv.appendChild(mute);
-      takkadiv.appendChild(unmute);
       takkadiv.appendChild(fullscr);
       play.src ='/img/play.svg';
       pause.src ='/img/pause.svg';
       forw.src ='/img/next.svg';
       back.src ='/img/back.svg';
       mute.src ='/img/mute.svg';
-      unmute.src ='/img/unmute.svg';
       fullscr.src ='/img/fullscreen.svg';
 
       footer.appendChild(a);
@@ -65,43 +64,62 @@ function likami(){
 
 
       }
-/*  FInna út úr
-      function forwardRewind(millisek){
 
-        document.addEventListener('click', function(){
-          document.querySelector('.forw');
-          if(document.querySelector('.forw').onclick==true){
-
-              myndband.currentTime += millisek;
-          }
-          document.querySelector('.back');
-           if(document.querySelector('.back').onclick==true) {
-
-            myndband.currentTime -= millisek;
-         }
-      });
-    }*/
           function playpause(){
 
             document.addEventListener('click', function(){
-            if(myndband.paused==true){
+              if(myndband.paused==true){
 
                 document.querySelector('.play').onclick = function (){
                    myndband.play();
                    play.src='/img/pause.svg';
                       }
                     }
-          else{
-              document.querySelector('.play').onclick = function (){
-                  myndband.pause();
-                  play.src='/img/play.svg';
+              else{
+                document.querySelector('.play').onclick = function (){
+                   myndband.pause();
+                   play.src='/img/play.svg';
                            }
                           }
-                      });
+                       });
                     }
 
-        }
+           function muteUnmute(){
 
+              document.addEventListener('click', function(){
+                if(myndband.muted){
+                  mute.onclick = function(){
+                  myndband.muted = false;
+                  mute.src='/img/mute.svg';
+                }}
+                else{
+                  mute.onclick = function(){
+                  myndband.muted = true;
+                  mute.src='/img/unmute.svg';
+            }}
+            });
+          }
+
+          /*  FInna út úr
+                function forwardRewind(millisek){
+
+                  document.addEventListener('click', function(){
+                    document.querySelector('.forw');
+                    if(document.querySelector('.forw').onclick==true){
+
+                        myndband.currentTime += millisek;
+                    }
+                    document.querySelector('.back');
+                     if(document.querySelector('.back').onclick==true) {
+
+                      myndband.currentTime -= millisek;
+                   }
+                });
+              }*/
+
+
+      }
       playpause();
-      forwardRewind(3000);
+      muteUnmute()
+      //forwardRewind(3000);
       }
