@@ -9,6 +9,11 @@ var sida2 = 'video.html?id='
 
 function likami() {
 
+  var request = new XMLHttpRequest();
+  request.open("GET", "./videos.json", false);
+  request.send(null)
+  var json= JSON.parse(request.response);
+
   container = document.querySelector('.container');
 
   for(i=0; i<json.categories.length; i+=1) {
