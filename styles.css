@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/* setjum box-sizing: border-box; á allt */
+html {
+  /* stylelint-disable-line */
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  /* stylelint-disable-line */
+  box-sizing: inherit;
+  /* fjarlægjum margin og padding */
+  padding: 0;
+  margin: 0; }
+
+html {
+  /* stylelint-disable-line */
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5; }
+  @media (min-width: 1000px) {
+    html {
+      margin: 0; } }
+
+img {
+  /* stylelint-disable-line */
+  max-width: 100%; }
+
+main {
+  /* stylelint-disable-line */
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow-x: hidden; }
+  @media (max-width: 600px) {
+    main {
+      padding: 0 20px; } }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-bottom: 20px;
+  margin-left: -10px; }
+
+.col {
+  padding-right: 10px;
+  padding-left: 10px; }
+  .col-12 {
+    width: 100%; }
+  .col-6 {
+    width: 50%; }
+  .col-4 {
+    width: 33.33333%; }
+  @media (max-width: 600px) {
+    .col-mid-12 {
+      width: 100%; }
+    .col-mid-6 {
+      width: 50%; } }
+  @media (max-width: 500px) {
+    .col-small-12 {
+      width: 100%; } }
+body{
+  background-color: #383838;
+}
