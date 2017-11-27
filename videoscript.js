@@ -32,8 +32,11 @@ function likami(){
       forw = document.createElement('img');
       forw.setAttribute('class', 'forw');
       back = document.createElement('img');
+      back.setAttribute('class', 'back');
       mute = document.createElement('img');
+      mute.setAttribute('class', 'mute');
       fullscr = document.createElement('img');
+      fullscr.setAttribute('class', 'fullscr');
 
       container.appendChild(div);
       header.appendChild(h1);
@@ -62,59 +65,95 @@ function likami(){
       myndband.setAttribute('class', 'myndbandid');
       a.setAttribute('href', 'index.html');
 
+    }
+//Föll fyrir takka
 
-      }
-
-          function playpause(){
-
-            document.addEventListener('click', function(){
-              if(myndband.paused==true){
-
-                document.querySelector('.play').onclick = function (){
-                   myndband.play();
-                   play.src='/img/pause.svg';
-                      }
-                    }
-              else{
-                document.querySelector('.play').onclick = function (){
-                   myndband.pause();
-                   play.src='/img/play.svg';
-                           }
-                          }
-                       });
-                    }
-
-           function muteUnmute(){
-
-              document.addEventListener('click', function(){
-                if(myndband.muted){
-                  mute.onclick = function(){
-                  myndband.muted = false;
-                  mute.src='/img/mute.svg';
-                }}
-                else{
-                  mute.onclick = function(){
-                  myndband.muted = true;
-                  mute.src='/img/unmute.svg';
-            }}
-            });
+      function playpause(){
+         document.addEventListener('click', function(){
+          if(myndband.paused==true){
+            document.querySelector('.play').onclick = function (){
+            myndband.play();
+            play.src='/img/pause.svg';
+                }
+              }
+          else{
+            document.querySelector('.play').onclick = function (){
+               myndband.pause();
+               play.src='/img/play.svg';
+                  }
+                }
+             });
           }
 
-          function forwardRewind(millisek){
+        function muteUnmute(){
 
-             document.addEventListener('click', function(){
-                forw.onclick = function(){
-                    myndband.currentTime +=millisek;
-                    }
-                back.onclick = function() {
-                    myndband.currentTime -= millisek;
-                    }
-                });
-              }
+          document.addEventListener('click', function(){
+            if(myndband.muted){
+              mute.onclick = function(){
+                myndband.muted = false;
+                mute.src='/img/mute.svg';
+                }}
+            else{
+              mute.onclick = function(){
+                myndband.muted = true;
+                mute.src='/img/unmute.svg';
+              }}
+            });
+           }
 
+        function forwardRewind(millisek){
+
+           document.addEventListener('click', function(){
+             forw.onclick = function(){
+               myndband.currentTime +=millisek;
+                }
+             back.onclick = function() {
+                myndband.currentTime -= millisek;
+                }
+              });
+            }
+
+        function isFullScreen(){
+           return (document.fullScreenElement && document.fullScreenElement !== null)
+           document.mozFullScreen
+           document.webkitIsFullScreen;
+        }
+
+        function requestFullScreen(element){
+            if (myndband.requestFullscreen)
+                myndband.requestFullscreen();
+            else if (myndband.msRequestFullscreen)
+                myndband.msRequestFullscreen();
+            else if (myndband.mozRequestFullScreen)
+                myndband.mozRequestFullScreen();
+            else if (myndband.webkitRequestFullscreen)
+                myndband.webkitRequestFullscreen();
+        }
+
+        function exitFullScreen(){
+            if (document.exitFullscreen)
+                document.exitFullscreen();
+            else if (document.msExitFullscreen)
+                document.msExitFullscreen();
+            else if (document.mozCancelFullScreen)
+                document.mozCancelFullScreen();
+            else if (document.webkitExitFullscreen)
+                document.webkitExitFullscreen();
+        }
+
+        function toggleFullScreen(element){
+            if (isFullScreen())
+                exitFullScreen();
+            else
+                requestFullScreen(element || document.documentElement);
+        }
       }
-      playpause();
-      muteUnmute();
-      forwardRewind(3);
-      //forwardRewind(3000);
-      }
+
+//Takkar föll virkjuð
+   playpause();
+   muteUnmute();
+   forwardRewind(3);
+   fullscr.onclick = function(){
+     toggleFullScreen(fullscr);
+   }
+  }

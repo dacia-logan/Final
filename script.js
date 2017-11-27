@@ -77,6 +77,10 @@ function created(millisekundur){
     createdEining = "Fyrir "+(Math.floor(created/1000/60/60/24))+" dögum síðan";
     return createdEining;
   }
+  else if((Math.floor(created/1000/60/60)>1)){
+    createdEining = "Fyrir "+(Math.floor(created/1000/60/60/24))+" klukkustundum síðan";
+    return createdEining;
+  }
 }
 
 function lengdMyndb(sekundur) {
@@ -96,26 +100,4 @@ function lengdMyndb(sekundur) {
 }
 
 
-  /*
-
-
-möguleg lausn playpause
-
-var myAudio = document.getElementById("myAudio");
-var isPlaying = false;
-
-function togglePlay() {
-  if (isPlaying) {
-    myAudio.pause()
-  } else {
-    myAudio.play();
-  }
-};
-myAudio.onplaying = function() {
-  isPlaying = true;
-};
-myAudio.onpause = function() {
-  isPlaying = false;
-
-*/
 document.addEventListener('DOMContentLoaded', likami);
