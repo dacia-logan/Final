@@ -36,9 +36,9 @@ main {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -10px;
+  margin-right: 10px;
   margin-bottom: 20px;
-  margin-left: -10px; }
+  margin-left: 10px; }
 
 .col {
   padding-right: 10px;
@@ -49,28 +49,30 @@ main {
     width: 50%; }
   .col-4 {
     width: 33.33333%; }
-  @media (max-width: 600px) {
-    .col-mid-12 {
-      width: 100%; }
-    .col-mid-6 {
-      width: 50%; } }
   @media (max-width: 500px) {
     .col-small-12 {
       width: 100%; } }
-<<<<<<< HEAD
-=======
 
 .takkadiv {
   display: flex;
   justify-content: center;
   flex-direction: row; }
 
-body {
-  background-color: gray; }
+header {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px; }
 
-h1, h2, p, div {
+body {
+  background-color: #383838; }
+
+h2, p, div {
   color: white;
   text-decoration: none; }
+
+h1 {
+  color: white;
+  margin-bottom: 20px; }
 
 a:link {
   text-decoration: none; }
@@ -85,30 +87,26 @@ a:active {
   text-decoration: underline; }
 
 .flokkur {
-  border-bottom: 1px solid white;
-  margin-top: 50px; }
+  margin-top: 50px;
+  border-bottom: 1px solid white; }
 
 .vidbox {
-  border: 1px solid white;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 50px; }
+  @media (max-width: 500px) {
+    .vidbox {
+      display: flex;
+      flex-direction: column; } }
 
 .myndband {
-  border: 1px solid white;
-  margin: auto; }
-
-footer {
-  display: flex;
-  justify-content: center; }
-  footer a {
-    color: white; }
-  footer a:link {
-    text-decoration: none; }
-  footer a:visited {
-    text-decoration: none; }
-  footer a:hover {
-    text-decoration: none; }
-  footer a:active {
-    text-decoration: none; }
->>>>>>> 46b107333bdcc54bf0518831c3c95726669a88d2
+  width: 100%;
+  min-width: 200px;
+  max-width: 400px;
+  overflow: hidden;
+  margin-bottom: 20px; }
+  @media (max-width: 500px) {
+    .myndband {
+      display: flex; } }
