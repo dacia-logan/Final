@@ -10,6 +10,9 @@
   max-width: 50px;
   margin: auto;
   padding: 20px;
+  @media(max-width: $min-width){
+    padding-top: 100px;
+  }
 }
 header{
   h1{

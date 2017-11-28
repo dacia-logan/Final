@@ -1,10 +1,15 @@
-<<<<<<< HEAD
+
 .myndbandaDiv {
   display: flex;
   justify-content: center;
+
   video {
     object-fit: cover;
+    max-width: 800px;
+    max-height: 600px;
+}
+@media(max-width: $min-width) {
+  max-width: 400px;
+  max-height: 300px;
 }
 }
-=======
->>>>>>> 5dee890063babc5f6921a5bb3d6dfba3aae228ff

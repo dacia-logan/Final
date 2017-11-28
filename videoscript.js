@@ -80,14 +80,12 @@ function likami(){
       footer.appendChild(a);
       a.appendChild(document.createTextNode('Til baka'));
 
-      div.setAttribute('class', 'myndbandaDiv');
+      div.setAttribute('class', 'col-12 myndbandaDiv');
       myndband.src = json.videos[i].video;
       myndband.setAttribute('type', 'video/mp4');
       myndband.setAttribute('class', 'myndbandid');
-      myndband.setAttribute('width', '800');
-      myndband.setAttribute('height', '600');
       a.setAttribute('href', 'index.html');
-      takkadiv.setAttribute('class', 'takkadiv');
+      takkadiv.setAttribute('class', 'col-12 takkadiv');
 
     }
 //Föll fyrir takka
