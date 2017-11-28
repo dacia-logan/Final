@@ -30,7 +30,7 @@
 
 
   &-small {
-    @media (max-width: $width-small) {
+    @media (max-width: $min-width) {
       &-12 {
         @include columns(12);
       }

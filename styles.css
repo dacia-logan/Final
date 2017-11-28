@@ -29,7 +29,7 @@ main {
   max-width: 1000px;
   margin: 0 auto;
   overflow-x: hidden; }
-  @media (max-width: 600px) {
+  @media (max-width: 500px) {
     main {
       padding: 0 20px; } }
 
