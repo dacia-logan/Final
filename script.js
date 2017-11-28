@@ -1,22 +1,29 @@
-var request = new XMLHttpRequest();
-request.open("GET", "./videos.json", false);
-request.send(null)
-var json= JSON.parse(request.response);
 
-var container, flokkur, vidbox, div1, div2, div3, vid, video, a, p, img;
-var h1, h2;
-var sida2 = 'video.html?id='
+let container;
+let flokkur;
+let vidbox;
+let div1;
+let div2;
+let div3;
+let vid;
+let video;
+let a;
+let p;
+let img;
+let h1;
+let h2;
+let sida2 = 'video.html?id='
 
 function likami() {
 
-  var request = new XMLHttpRequest();
-  request.open("GET", "./videos.json", false);
+  const request = new XMLHttpRequest();
+  request.open('GET', './videos.json', false);
   request.send(null)
-  var json= JSON.parse(request.response);
+  const json= JSON.parse(request.response);
 
   container = document.querySelector('.container');
 
-  for(i=0; i<json.categories.length; i+=1) {
+  for(i = 0; i < json.categories.length; i+=1) {
 
     div1 = document.createElement('div');
     div2 = document.createElement('div');
@@ -28,9 +35,9 @@ function likami() {
     div1.setAttribute('class', 'flokkur');
     div2.setAttribute('class','vidbox');
 
-    for(j=0; j<json.categories[i].videos.length; j+=1){
+    for(j = 0; j < json.categories[i].videos.length; j+=1){
 
-      var queryS = '?id='+json.videos[json.categories[i].videos[j] - 1].id;
+      const queryS = '?id='+json.videos[json.categories[i].videos[j] - 1].id;
 
       vidiv = document.createElement('div');
       div3 = document.createElement('div');
@@ -58,32 +65,36 @@ function likami() {
 
 function created(millisekundur){
 
-  var dags= new Date();
-  var created = dags-millisekundur;
+  const dags= new Date();
+  const created = dags-millisekundur;
 
   if((Math.floor(created/1000/60/60/24/365)>0)){
-    createdEining = "Fyrir "+(Math.floor(created/1000/60/60/24/365))+" árum síðan";
+    createdEining = 'Fyrir '+(Math.floor(created/1000/60/60/24/365))+' árum síðan';
     return createdEining;
   }
   else if((Math.floor(created/1000/60/60/24/30)>1)){
-    createdEining = "Fyrir "+(Math.floor(created/1000/60/60/24/30))+" mánuðum síðan";
+    createdEining = 'Fyrir '+(Math.floor(created/1000/60/60/24/30))+' mánuðum síðan';
     return createdEining;
   }
   else if((Math.floor(created/1000/60/60/24/7)>1)){
-    createdEining = "Fyrir "+(Math.floor(created/1000/60/60/24/7))+" vikum síðan";
+    createdEining = 'Fyrir '+(Math.floor(created/1000/60/60/24/7))+' vikum síðan';
     return createdEining;
   }
   else if((Math.floor(created/1000/60/60/24)>1)){
-    createdEining = "Fyrir "+(Math.floor(created/1000/60/60/24))+" dögum síðan";
+    createdEining = 'Fyrir '+(Math.floor(created/1000/60/60/24))+' dögum síðan';
+    return createdEining;
+  }
+  else if((Math.floor(created/1000/60/60)>1)){
+    createdEining = 'Fyrir '+(Math.floor(created/1000/60/60/24))+' klukkustundum síðan';
     return createdEining;
   }
 }
 
 function lengdMyndb(sekundur) {
 
-  var min = Math.floor(sekundur/60);
-  var sek = Math.floor(sekundur%60);
-  var timi;
+  let min = Math.floor(sekundur/60);
+  let sek = Math.floor(sekundur%60);
+  let timi;
 
   if(sek<10){
     sek = '0'+sek;
@@ -96,26 +107,4 @@ function lengdMyndb(sekundur) {
 }
 
 
-  /*
-
-
-möguleg lausn playpause
-
-var myAudio = document.getElementById("myAudio");
-var isPlaying = false;
-
-function togglePlay() {
-  if (isPlaying) {
-    myAudio.pause()
-  } else {
-    myAudio.play();
-  }
-};
-myAudio.onplaying = function() {
-  isPlaying = true;
-};
-myAudio.onpause = function() {
-  isPlaying = false;
-
-*/
 document.addEventListener('DOMContentLoaded', likami);

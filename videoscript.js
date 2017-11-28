@@ -1,16 +1,29 @@
 
-
-var container, myndband, h1, a, header, audkenni, div, play, pause, forw, back, mute, unmute, fullscr, footer;
-var url = window.location;
-var lastChar;
+let container;
+let myndband;
+let h1;
+let a;
+let header;
+let audkenni;
+let div;
+let play;
+let pause;
+let forw;
+let back;
+let mute;
+let unmute
+let fullscr;
+let footer;
+let url = window.location;
+let lastChar;
 
 document.addEventListener('DOMContentLoaded', likami);
 
 function likami(){
-  var request = new XMLHttpRequest();
-  request.open("GET", "./videos.json", false);
+  const request = new XMLHttpRequest();
+  request.open('GET', './videos.json', false);
   request.send(null)
-  var json= JSON.parse(request.response);
+  let json= JSON.parse(request.response);
 
   container = document.querySelector('.container');
   header = document.querySelector('header');
@@ -19,12 +32,13 @@ function likami(){
   footer = document.querySelector('footer');
   myndband = document.createElement('video');
 
-  for(var i = 0; i<json.videos.length; i+=1){
+  for(i = 0; i<json.videos.length; i+=1){
     if(audkenni==json.videos[i].id){
       div = document.createElement('div');
       h1 = document.createElement('h1');
       a = document.createElement('a');
       takkadiv = document.createElement('div');
+
       play = document.createElement('img');
       play.setAttribute('class', 'play');
       pause = document.createElement('img');
@@ -32,8 +46,11 @@ function likami(){
       forw = document.createElement('img');
       forw.setAttribute('class', 'forw');
       back = document.createElement('img');
+      back.setAttribute('class', 'back');
       mute = document.createElement('img');
+      mute.setAttribute('class', 'mute');
       fullscr = document.createElement('img');
+      fullscr.setAttribute('class', 'fullscr');
 
       container.appendChild(div);
       header.appendChild(h1);
@@ -62,64 +79,95 @@ function likami(){
       myndband.setAttribute('class', 'myndbandid');
       a.setAttribute('href', 'index.html');
 
+    }
+//Föll fyrir takka
 
-      }
-
-          function playpause(){
-
-            document.addEventListener('click', function(){
-              if(myndband.paused==true){
-
-                document.querySelector('.play').onclick = function (){
-                   myndband.play();
-                   play.src='/img/pause.svg';
-                      }
-                    }
-              else{
-                document.querySelector('.play').onclick = function (){
-                   myndband.pause();
-                   play.src='/img/play.svg';
-                           }
-                          }
-                       });
-                    }
-
-           function muteUnmute(){
-
-              document.addEventListener('click', function(){
-                if(myndband.muted){
-                  mute.onclick = function(){
-                  myndband.muted = false;
-                  mute.src='/img/mute.svg';
-                }}
-                else{
-                  mute.onclick = function(){
-                  myndband.muted = true;
-                  mute.src='/img/unmute.svg';
-            }}
-            });
+      function playpause(){
+         document.addEventListener('click', function(){
+          if(myndband.paused==true){
+            document.querySelector('.play').onclick = function (){
+            myndband.play();
+            play.src='/img/pause.svg';
+                }
+              }
+          else{
+            document.querySelector('.play').onclick = function (){
+               myndband.pause();
+               play.src='/img/play.svg';
+                  }
+                }
+             });
           }
 
-          /*  FInna út úr
-                function forwardRewind(millisek){
+        function muteUnmute(){
 
-                  document.addEventListener('click', function(){
-                    document.querySelector('.forw');
-                    if(document.querySelector('.forw').onclick==true){
+          document.addEventListener('click', function(){
+            if(myndband.muted){
+              mute.onclick = function(){
+                myndband.muted = false;
+                mute.src='/img/mute.svg';
+                }}
+            else{
+              mute.onclick = function(){
+                myndband.muted = true;
+                mute.src='/img/unmute.svg';
+              }}
+            });
+           }
 
-                        myndband.currentTime += millisek;
-                    }
-                    document.querySelector('.back');
-                     if(document.querySelector('.back').onclick==true) {
+         function forwardRewind(millisek){
 
-                      myndband.currentTime -= millisek;
-                   }
-                });
-              }*/
+           document.addEventListener('click', function(){
+             forw.onclick = function() {
+             myndband.currentTime += millisek;
+                }
+             back.onclick = function() {
+                myndband.currentTime -= millisek;
+                }
+              });
+            }
 
+        function isFullScreen(){
+           return (document.fullScreenElement && document.fullScreenElement !== null)
+           document.mozFullScreen
+           document.webkitIsFullScreen;
+        }
 
+        function requestFullScreen(element){
+            if (myndband.requestFullscreen)
+                myndband.requestFullscreen();
+            else if (myndband.msRequestFullscreen)
+                myndband.msRequestFullscreen();
+            else if (myndband.mozRequestFullScreen)
+                myndband.mozRequestFullScreen();
+            else if (myndband.webkitRequestFullscreen)
+                myndband.webkitRequestFullscreen();
+        }
+
+        function exitFullScreen(){
+            if (document.exitFullscreen)
+                document.exitFullscreen();
+            else if (document.msExitFullscreen)
+                document.msExitFullscreen();
+            else if (document.mozCancelFullScreen)
+                document.mozCancelFullScreen();
+            else if (document.webkitExitFullscreen)
+                document.webkitExitFullscreen();
+        }
+
+        function toggleFullScreen(element){
+            if (isFullScreen())
+                exitFullScreen();
+            else
+                requestFullScreen(element || document.documentElement);
+        }
       }
-      playpause();
-      muteUnmute()
-      //forwardRewind(3000);
-      }
+
+//Takkar föll virkjuð
+   playpause();
+   muteUnmute();
+   forwardRewind(3);
+   fullscr.onclick = function(){
+     toggleFullScreen(fullscr);
+   }
+  }
