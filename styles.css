@@ -57,16 +57,47 @@ main {
   @media (max-width: 500px) {
     .col-small-12 {
       width: 100%; } }
-<<<<<<< HEAD
-=======
 
 .takkadiv {
   display: flex;
   justify-content: center;
-  flex-direction: row; }
+  flex-direction: row;
+  max-width: 50px;
+  margin: auto;
+  padding: 20px; }
+  .takkadiv img {
+    max-width: 100px;
+    max-height: 70px;
+    padding: 4px; }
+
+header h1 {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-size: 45px; }
+
+footer {
+  display: flex;
+  justify-content: center; }
+  footer a {
+    color: white;
+    font-size: 25px; }
+  footer a:link {
+    text-decoration: none; }
+  footer a:visited {
+    text-decoration: none; }
+  footer a:hover {
+    text-decoration: none; }
+  footer a:active {
+    text-decoration: none; }
 
 body {
-  background-color: gray; }
+  background-color: gray;
+  color: white; }
+
+main div a {
+  text-decoration: none;
+  color: white; }
 
 h1, h2, p, div {
   color: white;
@@ -98,17 +129,8 @@ a:active {
   border: 1px solid white;
   margin: auto; }
 
-footer {
+.myndbandaDiv {
   display: flex;
   justify-content: center; }
-  footer a {
-    color: white; }
-  footer a:link {
-    text-decoration: none; }
-  footer a:visited {
-    text-decoration: none; }
-  footer a:hover {
-    text-decoration: none; }
-  footer a:active {
-    text-decoration: none; }
->>>>>>> 46b107333bdcc54bf0518831c3c95726669a88d2
+  .myndbandaDiv video {
+    object-fit: cover; }

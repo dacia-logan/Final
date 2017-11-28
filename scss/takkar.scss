@@ -1,6 +1,46 @@
 .takkadiv{
+  img{
+    max-width: 100px;
+    max-height: 70px;
+    padding: 4px;
+  }
   display: flex;
   justify-content: center;
   flex-direction: row;
+  max-width: 50px;
+  margin: auto;
+  padding: 20px;
+}
+header{
+  h1{
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-size: 45px;
+  }
+}
+footer{
+  display: flex;
+  justify-content: center;
 
+a {
+  color: white;
+  font-size: 25px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
 }
