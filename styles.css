@@ -57,11 +57,3 @@ main {
   @media (max-width: 500px) {
     .col-small-12 {
       width: 100%; } }
-
-body {
-  background-color: gray;
-  color: white; }
-
-main div a {
-  text-decoration: none;
-  color: white; }

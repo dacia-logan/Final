@@ -39,18 +39,25 @@ function likami(){
       a = document.createElement('a');
       takkadiv = document.createElement('div');
 
+
       play = document.createElement('img');
       play.setAttribute('class', 'play');
+
       pause = document.createElement('img');
       pause.setAttribute('class', 'pause');
+
       forw = document.createElement('img');
       forw.setAttribute('class', 'forw');
+
       back = document.createElement('img');
       back.setAttribute('class', 'back');
+
       mute = document.createElement('img');
       mute.setAttribute('class', 'mute');
+
       fullscr = document.createElement('img');
       fullscr.setAttribute('class', 'fullscr');
+
 
       container.appendChild(div);
       header.appendChild(h1);
@@ -58,11 +65,11 @@ function likami(){
       div.appendChild(myndband);
       container.appendChild(takkadiv);
 
-      takkadiv.appendChild(play);
-      takkadiv.appendChild(forw);
       takkadiv.appendChild(back);
+      takkadiv.appendChild(play);
       takkadiv.appendChild(mute);
       takkadiv.appendChild(fullscr);
+      takkadiv.appendChild(forw);
       play.src ='/img/play.svg';
       pause.src ='/img/pause.svg';
       forw.src ='/img/next.svg';
@@ -77,7 +84,10 @@ function likami(){
       myndband.src = json.videos[i].video;
       myndband.setAttribute('type', 'video/mp4');
       myndband.setAttribute('class', 'myndbandid');
+      myndband.setAttribute('width', '800');
+      myndband.setAttribute('height', '600');
       a.setAttribute('href', 'index.html');
+      takkadiv.setAttribute('class', 'takkadiv');
 
     }
 //Föll fyrir takka

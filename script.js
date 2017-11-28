@@ -55,7 +55,7 @@ function likami() {
       h2.appendChild(document.createTextNode(json.videos[json.categories[i].videos[j] - 1].title));
       a.appendChild(h2);
 
-      vidiv.setAttribute('class', 'myndband')
+      vidiv.setAttribute('class', 'col-4 myndband')
       img.src = json.videos[json.categories[i].videos[j] -1].poster;
       a.setAttribute('href', 'videos.html'+queryS);
     }
