@@ -58,6 +58,25 @@ main {
     .col-small-12 {
       width: 100%; } }
 
+.takkadiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: row; }
+
+footer {
+  display: flex;
+  justify-content: center; }
+  footer a {
+    color: white; }
+  footer a:link {
+    text-decoration: none; }
+  footer a:visited {
+    text-decoration: none; }
+  footer a:hover {
+    text-decoration: none; }
+  footer a:active {
+    text-decoration: none; }
+
 body {
   background-color: gray; }
 
@@ -90,15 +109,6 @@ a:active {
 .myndband {
   border: 1px solid white;
   margin: auto; }
-
-.myndbandaDiv {
-  display: flex;
-  justify-content: center; }
-
-.takkadiv {
-  display: flex;
-  justify-content: center;
-  flex-direction: row; }
 
 footer {
   display: flex;

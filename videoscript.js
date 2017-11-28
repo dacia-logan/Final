@@ -42,28 +42,22 @@ function likami(){
 
       play = document.createElement('img');
       play.setAttribute('class', 'play');
-      play.setAttribute('width', '50');
-      play.setAttribute('heigth', '50');
+
       pause = document.createElement('img');
       pause.setAttribute('class', 'pause');
-      pause.setAttribute('width', '50');
-      pause.setAttribute('heigth', '50');
+
       forw = document.createElement('img');
       forw.setAttribute('class', 'forw');
-      forw.setAttribute('width', '50');
-      forw.setAttribute('heigth', '50');
+
       back = document.createElement('img');
       back.setAttribute('class', 'back');
-      back.setAttribute('width', '50');
-      back.setAttribute('heigth', '50');
+
       mute = document.createElement('img');
       mute.setAttribute('class', 'mute');
-      mute.setAttribute('width', '50');
-      mute.setAttribute('heigth', '50');
+
       fullscr = document.createElement('img');
       fullscr.setAttribute('class', 'fullscr');
-      fullscr.setAttribute('width', '50');
-      fullscr.setAttribute('heigth', '50');
+
 
       container.appendChild(div);
       header.appendChild(h1);
