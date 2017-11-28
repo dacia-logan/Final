@@ -32,8 +32,8 @@ function likami() {
     div1.appendChild(div2);
     container.appendChild(div1);
     h1.appendChild(document.createTextNode(json.categories[i].title));
-    div1.setAttribute('class', 'flokkur');
-    div2.setAttribute('class','vidbox');
+    div1.setAttribute('class', 'col-12 flokkur');
+    div2.setAttribute('class','col-12 vidbox');
 
     for(j = 0; j < json.categories[i].videos.length; j+=1){
 
@@ -55,7 +55,7 @@ function likami() {
       h2.appendChild(document.createTextNode(json.videos[json.categories[i].videos[j] - 1].title));
       a.appendChild(h2);
 
-      vidiv.setAttribute('class', 'col-4 myndband')
+      vidiv.setAttribute('class', 'col-6 myndband')
       img.src = json.videos[json.categories[i].videos[j] -1].poster;
       a.setAttribute('href', 'videos.html'+queryS);
     }

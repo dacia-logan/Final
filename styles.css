@@ -36,9 +36,9 @@ main {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -10px;
+  margin-right: 10px;
   margin-bottom: 20px;
-  margin-left: -10px; }
+  margin-left: 10px; }
 
 .col {
   padding-right: 10px;
@@ -49,11 +49,6 @@ main {
     width: 50%; }
   .col-4 {
     width: 33.33333%; }
-  @media (max-width: 600px) {
-    .col-mid-12 {
-      width: 100%; }
-    .col-mid-6 {
-      width: 50%; } }
   @media (max-width: 500px) {
     .col-small-12 {
       width: 100%; } }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 body {
   background-color: gray;
@@ -8,13 +9,27 @@ main{
     text-decoration: none;
     color: white;
   }
+=======
+header{
+  display:flex;
+  justify-content: center;
+  padding-top: $gutter;
 }
 
-h1, h2, p, div {
+body {
+  background-color: #383838;
+>>>>>>> 5dee890063babc5f6921a5bb3d6dfba3aae228ff
+}
+ h2, p, div {
   color: white;
   text-decoration: none;
 }
 
+h1{
+  color: white;
+  margin-bottom: 20px;
+
+}
 
 a:link {
     text-decoration: none;
@@ -32,22 +47,36 @@ a:active {
     text-decoration: underline;
 }
 
-.flokkur {
-  border-bottom: 1px solid white;
-  margin-top: 50px;
 
+.flokkur {
+  margin-top: 50px;
+  border-bottom: 1px solid white;
 }
 
 .vidbox {
-  border: 1px solid white;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 50px;
 
+  @media(max-width: $min-width) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.myndband {
-  border: 1px solid white;
-  margin: auto;
 
+
+.myndband {
+  width: 100%;
+  min-width: 200px;
+  max-width: 400px;
+  overflow: hidden;
+  margin-bottom: 20px;
+
+
+  @media (max-width: $min-width) {
+    display: flex;
+  }
 }
