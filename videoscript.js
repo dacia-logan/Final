@@ -84,6 +84,8 @@ function likami(){
       myndband.src = json.videos[i].video;
       myndband.setAttribute('type', 'video/mp4');
       myndband.setAttribute('class', 'myndbandid');
+      myndband.setAttribute('width', '800');
+      myndband.setAttribute('height', '600');
       a.setAttribute('href', 'index.html');
       takkadiv.setAttribute('class', 'col-12 takkadiv');
 
